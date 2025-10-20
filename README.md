@@ -71,7 +71,7 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
      - Features: `audio-narration-rules.md`, `formatting-rules.md`, `import-export.md`
      - Templates: `00 Session Dashboard.md` through `08 Campaign Journal.md`
      - Character template: `character-sheet-template.md`
-   - Upload `dice_roller.js` for probability calculations
+   - Use the "dnd-dice" skill for all rolls
 
 4. **Start Your Campaign**
    - Start a new conversation in your Project
@@ -130,7 +130,7 @@ Data structure definitions for all campaign tracking artifacts:
 - **08 Campaign Journal** - Narrative history
 
 #### Utilities
-- **`dice_roller.js`** - Polymorphic probability engine for all dice mechanics
+- **dnd-dice skill** - Use the "dnd-dice" skill for all rolls. Provides accurate D&D 5E dice rolling with proper probability distribution.
 - **`character-sheet-template.md`** - Standardized character sheet format
 
 ## 🎮 In-Game Commands
@@ -200,7 +200,7 @@ All system documentation is embedded in the framework files:
 
 ## 🎲 Dice Rolling
 
-All randomization uses the `dice_roller.js` engine:
+Use the "dnd-dice" skill for all rolls:
 - Standard notation support (1d20+5, 3d6, etc.)
 - Advantage/disadvantage mechanics
 - Critical hit/fumble detection

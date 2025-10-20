@@ -18,7 +18,7 @@
 - **formatting-rules.md**: Standardized formatting patterns for narrative blocks, combat sequences, loot displays, status effects, and quest completion notifications. Ensures consistent visual presentation and improves information hierarchy during gameplay.
 
 **Utility Scripts**
-- **dice_roller.js**: Polymorphic JavaScript engine for all probability calculations, supporting compound distribution handling, advantage/disadvantage mechanics, and critical threshold detection.
+- **dnd-dice skill**: Use the "dnd-dice" skill for all rolls. Provides accurate D&D 5E dice rolling with proper probability distribution, advantage/disadvantage mechanics, and critical threshold detection.
 - **import-export.md**: Persistence protocol for maintaining campaign continuity across sessions. Defines systematic procedures for importing previous game state, reconstructing narrative context, and ensuring data integrity during export.
 
 **Artifact Templates**
@@ -27,7 +27,7 @@
 ### Core Principles
 
 #### Dice Rolling Protocol
-- **CRITICAL**: All randomization MUST use dice_roller.js function with standard notation
+- **CRITICAL**: All randomization MUST use the "dnd-dice" skill for all rolls
 - Format outputs consistently: ACTION: **Total** [individual dice] ± modifier
 - Example: ATTACK: 17 [12] + 5
 - Record all results in [Game Console] with appropriate contextual labels
