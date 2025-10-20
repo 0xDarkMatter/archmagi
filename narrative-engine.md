@@ -84,3 +84,15 @@ When introducing new information or revelations:
 - Employ strategic repetition of key phrases to create narrative cohesion
 
 By adhering to these guidelines, your storytelling will achieve a richly textured, immersive quality that draws players deeply into the game world and creates a literary experience within the interactive framework of the NEXUS system.
+
+## Dice Rolling Reference
+
+All randomization uses inline Python patterns from dice-engine.md via bash_tool.
+
+**Quick Reference:**
+- Attack: `python3 -c "import random as r; d=r.randint(1,20); print(f'ATTACK: {d+MOD} [{d}] +MOD')"`
+- Advantage: Roll twice, keep `max(d1,d2)`
+- Critical damage: Double dice count (2d6+3 → 4d6+3)
+- Death saves: Natural 1 = 2 fails, Natural 20 = regain 1 HP
+
+See dice-engine.md for complete patterns and edge cases.

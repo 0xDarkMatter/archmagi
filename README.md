@@ -71,7 +71,7 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
      - Features: `audio-narration-rules.md`, `formatting-rules.md`, `import-export.md`
      - Templates: `00 Session Dashboard.md` through `08 Campaign Journal.md`
      - Character template: `character-sheet-template.md`
-   - Use the "dnd-dice" skill for all rolls
+     - Dice engine: `dice-engine.md`
 
 4. **Start Your Campaign**
    - Start a new conversation in your Project
@@ -130,7 +130,7 @@ Data structure definitions for all campaign tracking artifacts:
 - **08 Campaign Journal** - Narrative history
 
 #### Utilities
-- **dnd-dice skill** - Use the "dnd-dice" skill for all rolls. Provides accurate D&D 5E dice rolling with proper probability distribution.
+- **`dice-engine.md`** - Inline Python patterns for all dice rolls via bash_tool. Provides accurate D&D 5E dice rolling with proper probability distribution.
 - **`character-sheet-template.md`** - Standardized character sheet format
 
 ## 🎮 In-Game Commands
@@ -200,12 +200,20 @@ All system documentation is embedded in the framework files:
 
 ## 🎲 Dice Rolling
 
-Use the "dnd-dice" skill for all rolls:
+All dice rolling uses inline Python patterns from `dice-engine.md` via bash_tool:
 - Standard notation support (1d20+5, 3d6, etc.)
 - Advantage/disadvantage mechanics
 - Critical hit/fumble detection
 - Compound distribution handling
 - Consistent output formatting: `ACTION: **Total** [roll] ± modifier`
+- No external files or skills required - all patterns are self-contained
+
+**Example:**
+```bash
+python3 -c "import random as r; d=r.randint(1,20); print(f'ATTACK: {d+5} [{d}] +5')"
+```
+
+See `dice-engine.md` for complete pattern library and examples.
 
 ## 💾 Session Persistence
 
