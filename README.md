@@ -38,10 +38,12 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
 - Reputation-based relationship tracking (-100 to +100 scale)
 - Narrative integration with psychological depth
 
-### 🎵 Audio Integration
-- Voice generation guidelines for dramatic moments
-- Character voice selection matrices
-- Contextual narration parameters
+### 🎵 Audio Integration (Optional)
+- ElevenLabs text-to-speech integration for dramatic moments
+- 30+ curated voice options (villains, monsters, narrators, heroes)
+- Character voice consistency tracking
+- Free tier: 10,000 characters/month
+- Requires ElevenLabs API key and MCP configuration (see setup guide below)
 
 ## 🚀 Getting Started
 
@@ -50,6 +52,63 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
 **Required:**
 - Claude AI account with Projects access
 - **Claude Sonnet 4.5** (recommended model for optimal performance)
+
+**Optional (for Audio Narration):**
+- [ElevenLabs](https://elevenlabs.io) account (free tier available)
+- Claude Desktop app with MCP (Model Context Protocol) support
+- ElevenLabs MCP server configuration
+
+### Optional: Audio Narration Setup
+
+If you want to enable audio narration for dramatic moments and NPC voices:
+
+1. **Get ElevenLabs API Key**
+   - Sign up at [ElevenLabs.io](https://elevenlabs.io)
+   - Navigate to your profile settings
+   - Generate an API key (free tier: 10,000 characters/month)
+
+2. **Easy Setup via Claude Desktop**
+
+   The simplest way to add ElevenLabs support is through Claude Desktop's built-in MCP configuration:
+
+   - Open Claude Desktop settings
+   - Go to "Developer" → "Edit Config"
+   - Add the ElevenLabs MCP server configuration:
+
+   ```json
+   {
+     "mcpServers": {
+       "elevenlabs": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "@modelcontextprotocol/server-elevenlabs"
+         ],
+         "env": {
+           "ELEVENLABS_API_KEY": "your-api-key-here"
+         }
+       }
+     }
+   }
+   ```
+
+   - Replace `"your-api-key-here"` with your actual ElevenLabs API key
+   - Restart Claude Desktop
+
+3. **Alternative: Manual Setup**
+
+   For advanced users who prefer manual installation, see the [official ElevenLabs MCP repository](https://github.com/elevenlabs/elevenlabs-mcp).
+
+4. **Verify Setup**
+
+   Once configured, ArchMagi can use commands like:
+   ```
+   !voice [Voice ID] [Text to narrate]
+   ```
+
+   See `audio-narration-rules.md` for a curated list of 30+ voices for villains, monsters, narrators, and heroes.
+
+**Note:** Audio narration is entirely optional. ArchMagi works perfectly with text-only narration if you choose not to configure ElevenLabs.
 
 ### Installation
 
@@ -164,8 +223,8 @@ Define your campaign's emotional landscape:
 - **Disabled** - Standard encounters only
 
 ### 9. Audio Narration
-- **Enabled** - ElevenLabs text-to-speech for dramatic moments
-- **Disabled** - Text-only narration
+- **Enabled** - ElevenLabs text-to-speech for dramatic moments (requires API key and MCP setup)
+- **Disabled** - Text-only narration (default)
 
 ### 10. Safety Tools
 - **Lines & Veils** - Define content boundaries
