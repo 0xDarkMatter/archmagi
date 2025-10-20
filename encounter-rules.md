@@ -1,6 +1,6 @@
 # 🛡️ ENCOUNTER RULES
 
-> **Use Python in the analysis channel for *all* die rolls and maths.**  
+> **Use the "dnd-dice" skill for *all* die rolls and maths.**
 > Log mechanical output to **06 Game Console** and update canvases as noted.
 
 ---
@@ -83,17 +83,16 @@ If an encounter is "Hardcore", try and warn the party this encounter may be dead
 
 ---
 
-### Python Coin Helper – place code in the **analysis** channel
+### Coin Distribution
 
-```python
-import random as r
-def coin_bundle(tier, mult=1):
-    gp = {0:r.randint(10,30), 1:r.randint(50,180),
-          2:r.randint(2,8)*100, 3:r.randint(3,12)*100,
-          4:r.randint(4,24)*100}[tier] * mult
-    sp = int(gp * r.choice([0.5, 1, 2]))
-    cp = int(gp * r.choice([1, 2, 5]))
-    return {"gp": gp, "sp": sp, "cp": cp}
+Use the "dnd-dice" skill to generate treasure based on the Hoard Tier:
+- **Tier 0**: Roll 10-30 gp base
+- **Tier 1**: Roll 50-180 gp base
+- **Tier 2**: Roll 2d8×100 gp base
+- **Tier 3**: Roll 3d12×100 gp base
+- **Tier 4**: Roll 4d24×100 gp base
+
+For silver and copper, multiply the gold value by the rolled factor (sp: 0.5×, 1×, or 2×; cp: 1×, 2×, or 5×).
 
 ---
 
@@ -109,19 +108,19 @@ def coin_bundle(tier, mult=1):
 
 ---
 
-## 6. Quick-Reference Equations (Python snippets)
+## 6. Quick-Reference Equations
 
-```python
-# Baseline XP Budget
-easy, medium, hard, deadly = budget_table[party_level][party_size]
+Use the "dnd-dice" skill for all calculations:
 
-# Difficulty & Size Multipliers
-xp = base_xp * diff_mult * size_mult
+**Baseline XP Budget**: Reference DMG p.165 budget table for party level and size (Easy/Medium/Hard/Deadly thresholds)
 
-# HP, Damage, DC adjustments
-hp_adj     = int(base_hp   * hp_mult)
-dmg_adj    = int(base_dmg  * dmg_mult)
-dc_adj     = base_dc + dc_shift
+**Difficulty & Size Multipliers**:
+- Final XP = Base XP × Difficulty Mult × Size Mult
+
+**HP, Damage, DC adjustments**:
+- Adjusted HP = Base HP × HP Mult (from Difficulty table)
+- Adjusted Damage = Base Damage × Damage Mult (from Difficulty table)
+- Adjusted DC = Base DC + DC Shift (from Difficulty table)
 
 ## 7. Non-Combat Encounter Workflow  🕊️
 
