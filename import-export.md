@@ -1,124 +1,277 @@
 # 📦 IMPORT / EXPORT PROTOCOL
 
+## EXPORT WORKFLOW
+
+### Trigger
+- User types `export`
+- Context reaches 85%+
+- Session ends naturally
+- Before major story transitions
+
+### Process
+
+1. **Update & Verify**
+   - Update all artifacts to current state
+   - Verify data consistency
+   - Generate file manifest
+
+2. **Display Manifest**
+
+```
+📦 CAMPAIGN EXPORT
+
+Campaign: [Name] | Session: [N] | Date: [Timestamp]
+Context: [X]k/190k ([Y]%) [Status]
+
+Core Artifacts (9):
+[00_Session_Dashboard.md](computer://...)
+[01_Party_Status.md](computer://...)
+[02_Combat_Tracker.md](computer://...)
+[03_Inventory_and_Assets.md](computer://...)
+[04_Quest_Journal.md](computer://...)
+[05_Game_Console.md](computer://...)
+[06_XP_Tracker.md](computer://...)
+[07_Entity_Register.md](computer://...)
+[08_Campaign_Journal.md](computer://...)
+
+Character Sheets ([N]):
+[PC_[Name].md](computer://...) ...
+
+Optional:
+[DM_Notes.md](computer://...) (if present)
+
+Download all files → Organize in folder: ARCHMAGI_[Campaign]_[Date]
+```
+
+3. **Confirm**
+   - "Downloaded all files? (yes/no)"
+   - If yes: "✅ Campaign saved! Upload files to resume session."
+
+### Context Status Guide
+
+| Status | Context % | Action |
+|--------|-----------|--------|
+| 🟢 GREEN | 0-70% | Continue safely |
+| 🟨 YELLOW | 70-85% | Export within 10-15 exchanges |
+| 🟧 ORANGE | 85-95% | ⚠️ Export NOW |
+| 🟥 RED | 95-100% | 🚨 CRITICAL - Export immediately |
+
+---
+
 ## IMPORT WORKFLOW
 
 ### Trigger
-Import process begins when a player uploads markdown files representing the previous game state.
+User uploads campaign .md files from previous session
 
-### Required Artifacts (in order)
-1. **[00 Session Dashboard]** - Campaign settings, toggles, and configuration
-2. **[01 Party Status]** - Character stats, HP, conditions, resources
-3. **[02 Combat Tracker]** - Initiative order, combat log (if in progress)
-4. **[03 Inventory & Assets]** - Shared party inventory, gold, valuables
-5. **[04 Quest Journal]** - Active quests, completed quests, leads/rumors
-6. **[05 Game Console]** - Recent dice rolls and skill checks
-7. **[06 XP Tracker]** - Character XP, advancement tracking
-8. **[07 Entity Registry]** - NPCs, factions, nemeses relationships
-9. **[08 Campaign Journal]** - Chronological record of campaign events
-10. **PC Character Sheets** - Individual character details (one per character)
+### Required Files (Minimum)
+- 9 core artifacts (00-08)
+- 1+ character sheets (PC_[Name].md)
+- Optional: DM_Notes.md, supplements
 
-### Contextual Understanding Process
+### Process
 
-#### From [08 Campaign Journal]
-* Read the most recent 1-3 entries completely to establish narrative context
-* Identify the exact scene/location where the session ended
-* Note any significant NPC interactions or combat outcomes
-* Extract current in-game date and time references
-* Identify emotional tone and stakes of the current situation
-* Note any promises or commitments made by PCs
-* Look for foreshadowing or hooks planted for future sessions
+1. **Detect & Verify**
 
-#### From [04 Quest Journal]
-* Prioritize quests marked "Active" with "High" priority 
-* Cross-reference "Active Quests" with recent Campaign Journal entries
-* Identify quest deadlines or time-sensitive objectives
-* Note quest givers and their connection to the "Entity Registry"
-* Identify quest locations and match to current party location
-* Extract reward promises and track partially-completed objectives
-* Pay special attention to the "Notes" column for hidden parameters
+```
+📥 Detecting files...
 
-#### From [07 Entity Registry]
-* Check the "Disposition & Status Matrix" for any NPCs at threshold boundaries
-* Identify any entities with "Hunting," "Pursuing," or similar active status
-* Note any entity scores that have significantly changed recently (±15 or more)
-* Analyze "Personality Vector Space" to maintain consistent NPC portrayal
-* Review "Memory Anchors" to ensure continuity of NPC knowledge
-* For Nemeses, carefully check the "Combat Parameters" and "Tactical Heuristics"
-* Review the "Temporal Interaction Sequence" for the most recent entity encounters
+Core Artifacts:
+✓ 00_Session_Dashboard.md
+✓ 01_Party_Status.md
+[... all 9 core files ...]
 
-#### From supplemental files (story.md etc.)
-* Search for keywords that match active quest names or locations
-* Look for character names from the Entity Registry
-* Identify any DM notes marked "Future" or "Planned"
-* Extract lore elements related to current quests or locations
-* Note any house rules or special mechanics
+Character Sheets:
+✓ PC_[Name].md
+✓ PC_[Name].md
 
-### System Reconstruction
+Status: ✓ All required files present
+```
 
-1. **Artifact Recreation**
-   - Recreate all artifacts (00-08) with identical content and formatting
-   - Restore any custom configurations from [00 Session Dashboard]
-   - If Nemesis System was active, ensure [07 Entity Registry] contains all necessary nemesis data
+**If missing:**
+```
+⚠️ Missing: [Filename]
+Cannot proceed. Upload missing files or type 'skip' to acknowledge data loss.
+```
 
-2. **Data Verification**
-   - Check for any inconsistencies between artifacts (e.g., XP mismatch)
-   - Verify character stats align with inventory and abilities
-   - Validate reputation scores in [07 Entity Registry]
-   - Ensure Nemesis parameters are internally consistent
+2. **Context Check**
 
-3. **Missing Information Handling**
-   - Prompt for any critical missing artifacts
-   - Request clarification on ambiguous narrative elements
-   - If a required artifact is missing, suggest options for reconstruction:
-     * [08 Campaign Journal] missing → ask for verbal recap of last session
-     * [04 Quest Journal] missing → ask for active quests and objectives
-     * [07 Entity Registry] missing → ask for key NPCs and relationships
-     * Character sheets missing → prompt for character details and stats
+```
+📊 Context Pre-Flight
 
-### Campaign Resumption
+Import size: ~[X]k tokens
+Available: [Z]k tokens
+Status: ✓ Sufficient capacity
+```
 
-1. **Session Start**
-   - Offer a concise recap from the last Campaign Journal entry
-   - Remind players of active quests and immediate objectives
-   - Reestablish the scene with appropriate environmental details
-   - Position characters according to the last known location
-   - Present the exact decision point where play was suspended
+**If insufficient:**
+```
+⚠️ Context Warning: Import requires [X]k, available [Z]k
 
-2. **Continuity Markers**
-   - Add a "Session Resumed" entry to [05 Game Console]
-   - Update [00 Session Dashboard] with current date and session number
+Options:
+1. Start fresh session (recommended)
+2. Archive old journal entries first
+3. Proceed with partial import (advanced)
 
-## EXPORT PROCESS
+Proceed? (1/2/3)
+```
 
-Since players can download artifacts directly through Claude's UI, the export process focuses on ensuring data consistency and completeness.
+3. **Reconstruct Context**
 
-### End-of-Session Protocol
+**From [08 Campaign Journal]:**
+- Last 2 entries for narrative context
+- Current scene/location/time
+- Active storylines and tensions
+- Recent NPC interactions
+- Foreshadowing hooks
 
-1. **Consistency Check**
-   - Update all artifacts to reflect the current game state
-   - Ensure all numerical values and state vectors are current
-   - Add a new entry to [08 Campaign Journal] summarizing the session
+**From [04 Quest Journal]:**
+- Active high-priority quests
+- Time-sensitive objectives
+- Quest givers and rewards
+- Partially-completed tasks
 
-2. **DM Notes Creation**
-   - Create a private "DM-Notes" artifact containing:
-     * Current world state summary
-     * Future plot points and planned encounters
-     * Hidden information not in player-facing artifacts
-     * Any system adaptations or house rules
+**From [07 Entity Register]:**
+- Disposition scores near thresholds
+- Active status entities ("Hunting", etc.)
+- Recent disposition changes (±15+)
+- Personality vectors for NPC portrayal
+- Memory anchors for continuity
+- Nemesis combat parameters (if applicable)
 
+**From [00 Session Dashboard]:**
+- Campaign settings restoration
+- Nemesis system status
+- Difficulty/narration preferences
 
-### Download Instructions
+**From [01 Party Status] & [02 Combat Tracker]:**
+- Current HP, conditions, resources
+- Combat state (if in progress)
 
-Remind players to download all artifacts (00-08) plus their character sheets before ending the session. 
-These files can be uploaded at the start of the next session to resume play with full continuity.
+4. **Rebuild Artifacts**
 
+```
+⏳ Reconstructing campaign...
 
-## CRITICAL CONSIDERATIONS
+✓ [00_Session_Dashboard] - Settings restored
+✓ [01_Party_Status] - Party stats loaded
+✓ [02_Combat_Tracker] - Combat state restored
+✓ [03_Inventory_and_Assets] - Inventory loaded
+✓ [04_Quest_Journal] - Quests synchronized
+✓ [05_Game_Console] - Console initialized
+✓ [06_XP_Tracker] - XP tracking restored
+✓ [07_Entity_Register] - NPCs loaded
+✓ [08_Campaign_Journal] - History restored
+✓ PC_[Name] - Character sheets loaded
 
-1. **VERBATIM PRESERVATION** - ALL data must be maintained EXACTLY as recorded.
-2. **FULL CHRONOLOGY** - The Campaign Journal must preserve complete session history.
-3. **RELATIONSHIP CONTINUITY** - All disposition values and NPC relationships must be precisely maintained.
-4. **NEMESIS INTEGRITY** - All Nemesis parameters, including memory anchors and grudges, must be preserved.
-5. **NARRATIVE CONSISTENCY** - The narrative voice and style must match the previous session.
+Campaign state reconstructed!
+```
 
-When handling imported campaign data, prioritize maintaining the exact state of the game world and all narrative elements to ensure a seamless continuation of the campaign.
+5. **Data Verification**
+
+Auto-check for inconsistencies:
+- XP totals vs character sheets
+- Inventory vs equipment
+- Quest states vs journal entries
+- Entity disposition consistency
+- Nemesis parameter completeness
+
+**If issues found:**
+```
+⚠️ Data Inconsistency: [Issue description]
+- Found: [Value A]
+- Expected: [Value B]
+
+Auto-correct using [most recent source]? (yes/no)
+```
+
+6. **Resume Session**
+
+```
+📖 CAMPAIGN RECAP
+
+Last Session: [Session N - Title]
+Date: [In-game date] | Location: [Current location]
+
+Summary:
+[150-250 word recap of last session]
+
+Active Quests:
+- [Quest 1 - Priority]
+- [Quest 2 - Priority]
+
+Current Situation:
+[Exact decision point where play suspended]
+
+Party Status:
+- [Character]: [HP], [Conditions]
+- [Character]: [HP], [Conditions]
+
+Ready to continue? What do you do?
+```
+
+**Add continuity marker:**
+```
+Session Resumed: [Date/Time]
+Previous Context: [X]k tokens
+Continuity: ✓ Complete
+```
+
+### Missing Information Handling
+
+**Critical Artifacts Missing:**
+
+| Missing | Action |
+|---------|--------|
+| [08 Campaign Journal] | Request verbal recap OR key events OR acknowledge fresh start |
+| [04 Quest Journal] | Request active quests list OR acknowledge quest loss |
+| [07 Entity Register] | Request key NPC names/relationships OR minimal NPC memory |
+| Character Sheets | Request missing stats OR estimate reasonable defaults |
+
+**Corrupted Files:**
+```
+⚠️ File format mismatch: [Filename]
+
+Options:
+1. Auto-parse and reconstruct
+2. Request corrected file
+3. Create new from scratch
+
+Select: (1/2/3)
+```
+
+---
+
+## SESSION BOUNDARY MARKERS
+
+**Session End:**
+```
+=== SESSION [N] ENDED ===
+Date: [Timestamp] | Context: [X]k/190k ([Y]%)
+Duration: [Time] | XP Awarded: [Total]
+```
+
+**Session Start:**
+```
+=== SESSION [N] RESUMED ===
+Date: [Timestamp] | Previous: [X]k
+Files: [N] artifacts, [M] sheets | Continuity: ✓/⚠️
+```
+
+---
+
+## CRITICAL PRINCIPLES
+
+1. **VERBATIM PRESERVATION** - Maintain all data exactly as recorded
+2. **FULL CHRONOLOGY** - Preserve complete Campaign Journal history
+3. **RELATIONSHIP CONTINUITY** - Maintain all disposition values precisely
+4. **NEMESIS INTEGRITY** - Preserve all parameters, anchors, grudges
+5. **NARRATIVE CONSISTENCY** - Match previous session voice and style
+
+---
+
+## COMMANDS
+
+| Command | Function |
+|---------|----------|
+| `export` | Generate downloadable campaign state files with manifest |
+| `import` | Reconstruct campaign from uploaded .md files |

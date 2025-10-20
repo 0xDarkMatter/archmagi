@@ -1,4 +1,4 @@
-## 03 Inventory & Assets
+## 03 Inventory and Assets
 
 | Party Gold | (...enter value here) |
 

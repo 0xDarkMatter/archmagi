@@ -1,6 +1,6 @@
-## 08 Entity Registry
+## 08 Entity Register
 
-## Entity Registry: Disposition & Status Matrix
+## Entity Register: Disposition & Status Matrix
 | Entity ID | Name | Type | Score | Threshold | Location | Status | Notes |
 |-----------|------|------|-------|-----------|----------|--------|-------|
 

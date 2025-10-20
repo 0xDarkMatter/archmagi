@@ -22,7 +22,7 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
 - **Inventory Management**: Shared party inventory and individual character sheets
 - **Quest Journal**: Multi-tier quest tracking (rumors → side quests → major arcs)
 - **XP Tracking**: Automated experience point calculation and leveling
-- **Entity Registry**: NPC tracking with reputation, relationships, and voice patterns
+- **Entity Register**: NPC tracking with reputation, relationships, and voice patterns
 - **Campaign Journal**: Chronological narrative history with location signatures
 
 ### ⚔️ Advanced Combat Features
@@ -128,7 +128,7 @@ If you want to enable audio narration for dramatic moments and NPC voices:
      - Rules systems: `encounter-rules.md`, `nemesis-rules.md`, `entity-framework.md`, `journal-rules.md`, `statblocks-rules.md`
      - Narrative engine: `narrative-engine.md`
      - Features: `audio-narration-rules.md`, `formatting-rules.md`, `import-export.md`
-     - Templates: `00 Session Dashboard.md` through `08 Campaign Journal.md`
+     - Templates: `00_Session_Dashboard.md` through `08_Campaign_Journal.md`
      - Character template: `character-sheet-template.md`
      - Dice engine: `dice-engine.md`
 
@@ -263,11 +263,11 @@ Data structure definitions for all campaign tracking artifacts:
 - **00 Session Dashboard** - Campaign configuration center
 - **01 Party Status** - Character overview and conditions
 - **02 Combat Tracker** - Initiative and combat management
-- **03 Inventory & Assets** - Shared party loot
+- **03 Inventory and Assets** - Shared party loot
 - **04 Quest Journal** - Quest tracking and rumors
 - **05 Game Console** - Dice rolls and scratch calculations
 - **06 XP Tracker** - Experience point logging
-- **07 Entity Registry** - NPC and faction tracking
+- **07 Entity Register** - NPC and faction tracking
 - **08 Campaign Journal** - Narrative history
 
 #### Utilities
