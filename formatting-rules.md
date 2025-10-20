@@ -95,7 +95,7 @@
 2. **Timing**: Place these indicators at the precise moment the event occurs in the narrative
 3. **Exclusivity**: Reserve these formatting patterns for their specific purposes only
 4. **Visibility**: Ensure these elements stand out from regular text by maintaining the spacing shown
-5. **Updates**: When using these formats, update the corresponding artifacts ([02 Combat Tracker], [03 Inventory & Assets], [04 Quest Journal])
+5. **Updates**: When using these formats, update the corresponding artifacts ([02 Combat Tracker], [03 Inventory and Assets], [04 Quest Journal])
 
 ## Additional Notes
 

@@ -152,7 +152,7 @@ python3 -c "import random as r; d=r.randint(1,20); t=d+4; print(f'SAVE: {t} [{d}
 | **3** | **Rolls** | **All** PCs roll: <BR>• Individual → log each in **06 Game Console** <BR>• Group → mark P/F tally only. | 06 Game Console |
 | **4** | **Outcome & Fail-Forward** | Narrate success **or** progress-with-cost (hp loss, resource tick, time, new complication). | Chat |
 | **5** | **Mechanical Updates** | • HP / conditions → **01 Party Status**
-• Clues / loot → **03 Inventory & Assets** or **05 Quest Journal**
+• Clues / loot → **03 Inventory and Assets** or **05 Quest Journal**
 • Reputation shift → **04 Reputation Ledger** | Canvases noted |
 | **6** | **XP & Downtime** | If scene grants XP (DMG p 260) log in **07 XP Tracker** ➜ *XP Awarded*; if it consumes downtime, tick clocks. | 07 XP Tracker, 04 Ledger |
 

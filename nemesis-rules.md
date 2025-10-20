@@ -9,7 +9,7 @@ The Nemesis System creates memorable recurring villains who remember their inter
 ### Session Start
 * If no nemeses exist yet, generate 5-7 nemeses appropriate to the setting and party level
 * Add each nemesis to the Entity Framework (see "Adding to Entity Framework" below)
-* Update [07 Entity Tracker] with the details and combat parameters of each nemesis
+* Update [07 Entity Register] with the details and combat parameters of each nemesis
 
 ### Encounter Inclusion
 * At the start of any encounter, use dice-engine.md pattern: `python3 -c "import random as r; d=r.randint(1,20); print(f'NEMESIS CHECK: {d}')"`
@@ -30,7 +30,7 @@ The Nemesis System creates memorable recurring villains who remember their inter
 
 When a new nemesis is created:
 
-1. **Entity Registry Entry**
+1. **Entity Register Entry**
    * Assign next available `NEM###` ID
    * Add name, type, score (-60 to -90), "Nemesis" threshold, location, and status
    * Include rank, level, morale rating, and PC kill count in notes
@@ -76,7 +76,7 @@ For each nemesis:
    * Advance personal goals
 
 3. Update the appropriate sections in the Entity Framework:
-   * For location changes: Update Location field in Entity Registry
+   * For location changes: Update Location field in Entity Register
    * For new knowledge: Add to Knowledge Set in Personality Vector
    * For tactical changes: Update Tactical Heuristics in Combat Parameters
    * For all changes: Add entry to Interaction Log
@@ -92,7 +92,7 @@ Nemesis "Commander Krazoth" rolls 17 on evolution check. DM decides he's learned
 When a nemesis is defeated:
 1. Award bonus XP equal to their base XP again
 2. Generate better loot: one extra treasure table tier and a thematic magic item
-3. Update their Status in Entity Registry to "Defeated" (or "Permadeath" if permanently killed)
+3. Update their Status in Entity Register to "Defeated" (or "Permadeath" if permanently killed)
 4. Add entry to Interaction Log documenting their defeat
 
 ## APPENDIX: REFERENCE TABLES

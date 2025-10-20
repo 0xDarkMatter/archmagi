@@ -72,7 +72,7 @@ When transitioning between sessions:
 
 Display the following tables below in a single artifact titled "08 Entity Register"
 
-## Entity Registry: Disposition & Status Matrix
+## Entity Register: Disposition & Status Matrix
 | Entity ID | Name | Type | Score | Threshold | Location | Status | Notes |
 |-----------|------|------|-------|-----------|----------|--------|-------|
 | FCT001 | The Free League (Indeps) | Faction | +15 | Allied (0→+50) | Sigil (multiple wards) | Active | Neutral stance provides access to multiple faction territories |
