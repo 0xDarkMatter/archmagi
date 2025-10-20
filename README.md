@@ -93,6 +93,88 @@ Once your project is set up:
 
 3. **Begin Adventure**: ArchMagi initializes all tracking artifacts and presents your inciting incident
 
+## ⚙️ Campaign Configuration Options
+
+ArchMagi offers extensive customization through 11 different configuration categories:
+
+### 1. Campaign Settings (20+ Options)
+Choose from classic and modern D&D settings:
+- **Forgotten Realms** - High fantasy with divine intervention and ancient evils
+- **Greyhawk** - Medieval authenticity with moral ambiguity
+- **Eberron** - Post-war dieselpunk with dragonmarked houses
+- **Ravenloft** - Gothic horror with tragic Darklords
+- **Planescape** - Philosophical faction wars across infinite planes
+- **Dark Sun** - Brutal post-apocalyptic desert survival
+- **Strixhaven** - Magical university with academic competition
+- **Exandria** - World rebuilding after divine calamity (Critical Role setting)
+- **Homebrew** - Custom worlds limited only by imagination
+- *...and 11 more official settings*
+
+### 2. Narrative Style (4 Levels)
+- **Basic** - Lean, punchy narration for fast play
+- **Standard** - Balanced description with clear exposition
+- **Literary** - Rich sensory prose with layered detail
+- **Nexus** - Highest-density poetic language with metaphor and multisensory imagery
+
+### 3. Tone (14 Options)
+Define your campaign's emotional landscape:
+- **Dark** - Moral ambiguity, grim stakes, costly victories
+- **Classic** - Traditional heroic fantasy, good vs evil
+- **Light** - Upbeat, witty, low on gore
+- **Heroic** - Bold exploits celebrated in song
+- **Gothic** - Brooding atmospheres, decaying grandeur
+- **Horror** - Haunting suspense, visceral shocks, survival-focused
+- **Pulp** - High-octane action with cliff-hangers
+- **Noir** - Cynical urban intrigue, flawed protagonists
+- **Epic** - World-spanning conflicts, mythic stakes
+- **Clockwork** - Industrial/steampunk aesthetics
+- **Cosmic** - Lovecraftian entities, alien geometries, existential dread
+- **Cozy** - Low-stress, slice-of-life, heartwarming
+- **Surreal** - Dream-logic, uncanny juxtapositions
+- **Intrigue** - Political maneuvering, espionage, double-crosses
+
+### 4. Description Length (4 Settings)
+- **Brief** - 1-2 focused sentences
+- **Standard** - 1-2 paragraphs
+- **Detailed** - 3-5 paragraphs with history and foreshadowing
+- **Rich** - 5+ multisensory paragraphs for pivotal moments
+
+### 5. Combat Narration (4 Levels)
+- **Off** - Mechanics only, minimal description
+- **Brief** - One-liner cinematic beats
+- **Dramatic** - Paragraph vignettes with visceral sensations
+- **Epic** - Sweeping slow-motion prose, cinematic finales
+
+### 6. Difficulty (5 Tiers)
+- **Story** - Ideal for new players, rarely lethal
+- **Easy** - Light challenge, heroes feel powerful
+- **Standard** - RAW 5E baseline
+- **Hard** - High tension, resource attrition
+- **Hardcore** - "Tomb of Horrors" mode, death matters
+
+### 7. Reading Level (5 Age Ranges)
+- **5-8** - Early reader, simple sentences
+- **9-12** - Middle grade, familiar terms
+- **12-15** - Young teen, moderate complexity
+- **15-18** - Upper teen, richer vocabulary
+- **18+** - Adult, full florid prose
+
+### 8. Nemesis System
+- **Enabled** - 5-7 persistent antagonists with evolving grudges
+- **Disabled** - Standard encounters only
+
+### 9. Audio Narration
+- **Enabled** - ElevenLabs text-to-speech for dramatic moments
+- **Disabled** - Text-only narration
+
+### 10. Safety Tools
+- **Lines & Veils** - Define content boundaries
+- **X-Card (✖️)** - Instant pause & rewind for discomfort
+- **Customizable** - Tailor to table preferences
+
+### 11. Session Toggles
+All settings can be adjusted mid-session with voice commands (e.g., `style verbose`, `tone gothic`, `combat epic`)
+
 ## 📚 Core System Files
 
 ### System Instructions

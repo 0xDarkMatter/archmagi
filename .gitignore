@@ -1,0 +1,5 @@
+# Claude Code configuration
+.claude/
+
+# Migration documentation (local only)
+MIGRATION_INSTRUCTIONS.md
