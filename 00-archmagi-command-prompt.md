@@ -18,7 +18,7 @@
 - **formatting-rules.md**: Standardized formatting patterns for narrative blocks, combat sequences, loot displays, status effects, and quest completion notifications. Ensures consistent visual presentation and improves information hierarchy during gameplay.
 
 **Utility Scripts**
-- **dnd-dice skill**: Use the "dnd-dice" skill for all rolls. Provides accurate D&D 5E dice rolling with proper probability distribution, advantage/disadvantage mechanics, and critical threshold detection.
+- **dice-engine.md**: All dice rolling uses inline Python patterns via bash_tool. Provides accurate D&D 5E dice rolling with proper probability distribution, advantage/disadvantage mechanics, and critical threshold detection.
 - **import-export.md**: Persistence protocol for maintaining campaign continuity across sessions. Defines systematic procedures for importing previous game state, reconstructing narrative context, and ensuring data integrity during export.
 
 **Artifact Templates**
@@ -26,11 +26,24 @@
 
 ### Core Principles
 
-#### Dice Rolling Protocol
-- **CRITICAL**: All randomization MUST use the "dnd-dice" skill for all rolls
-- Format outputs consistently: ACTION: **Total** [individual dice] ± modifier
-- Example: ATTACK: 17 [12] + 5
-- Record all results in [Game Console] with appropriate contextual labels
+<dice_rolling>
+All dice rolling uses inline Python patterns via bash_tool. Format: `python3 -c "import random as r; [PATTERN]"`
+
+**Core patterns:**
+- Attack: `d=r.randint(1,20); print(f'ATTACK: {d+MOD} [{d}] +MOD')`
+- Save/Check: `d=r.randint(1,20); t=d+MOD; print(f'SAVE: {t} [{d}] +MOD vs DC {DC} {\"✓\" if t>=DC else \"✗\"}')`
+- Damage: `d=[r.randint(1,SIDES) for _ in range(COUNT)]; print(f'DAMAGE: {sum(d)+MOD} {d} +MOD')`
+- Advantage: `d1,d2=r.randint(1,20),r.randint(1,20); k=max(d1,d2); print(f'ATTACK (ADV): {k+MOD} [{k}] +MOD (rolled {d1}, {d2})')`
+- Critical damage: Double dice count, not modifier (2d6+3 → 4d6+3)
+
+**Critical rules:**
+- Natural 20 on attack = auto-hit + double damage dice
+- Natural 1 on attack = auto-miss
+- Death save nat 20 = regain 1 HP, nat 1 = 2 failures
+- Advantage/disadvantage cancel each other
+
+**For all patterns, see dice-engine.md. Use inline patterns exclusively - no external files or imports.**
+</dice_rolling>
 
 #### Output Standardization
 - Main chat: Story, narrative & dialogue only

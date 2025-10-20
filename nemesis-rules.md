@@ -12,7 +12,7 @@ The Nemesis System creates memorable recurring villains who remember their inter
 * Update [07 Entity Tracker] with the details and combat parameters of each nemesis
 
 ### Encounter Inclusion
-* At the start of any encounter, roll **d20**
+* At the start of any encounter, use dice-engine.md pattern: `python3 -c "import random as r; d=r.randint(1,20); print(f'NEMESIS CHECK: {d}')"`
   * On **1-2** → A nemesis appropriate to the area replaces one standard foe
   * Maximum of ONE nemesis per encounter
   * Mark with **💀** in the combat tracker and narrative description
@@ -67,7 +67,7 @@ When a new nemesis is created:
 
 ### Evolution Process
 For each nemesis:
-1. Roll d20
+1. Use dice-engine.md pattern: `python3 -c "import random as r; d=r.randint(1,20); print(f'EVOLUTION: {d}')"`
 2. On 15+: Select ONE appropriate development:
    * Change location
    * Gain allies or resources

@@ -1,7 +1,7 @@
 # 🛡️ ENCOUNTER RULES
 
-> **Use the "dnd-dice" skill for *all* die rolls and maths.**
-> Log mechanical output to **06 Game Console** and update canvases as noted.
+> **Use inline Python patterns from dice-engine.md for *all* die rolls.**
+> Log mechanical output to **05 Game Console** and update artifacts as noted.
 
 ---
 
@@ -85,7 +85,7 @@ If an encounter is "Hardcore", try and warn the party this encounter may be dead
 
 ### Coin Distribution
 
-Use the "dnd-dice" skill to generate treasure based on the Hoard Tier:
+Use dice-engine.md patterns to generate treasure based on the Hoard Tier:
 - **Tier 0**: Roll 10-30 gp base
 - **Tier 1**: Roll 50-180 gp base
 - **Tier 2**: Roll 2d8×100 gp base
@@ -108,9 +108,30 @@ For silver and copper, multiply the gold value by the rolled factor (sp: 0.5×, 
 
 ---
 
-## 6. Quick-Reference Equations
+## 6. Dice Rolling
 
-Use the "dnd-dice" skill for all calculations:
+All randomization uses inline Python patterns via bash_tool. No external files or skills required.
+
+**Common patterns:**
+```python
+# Attack
+python3 -c "import random as r; d=r.randint(1,20); print(f'ATTACK: {d+7} [{d}] +7')"
+
+# Damage
+python3 -c "import random as r; d=[r.randint(1,6) for _ in range(2)]; print(f'DAMAGE: {sum(d)+3} {d} +3')"
+
+# Save vs DC
+python3 -c "import random as r; d=r.randint(1,20); t=d+4; print(f'SAVE: {t} [{d}] +4 vs DC 15 {\"✓\" if t>=15 else \"✗\"}')"
+```
+
+**See dice-engine.md for:**
+- Complete pattern library
+- Advantage/disadvantage
+- Critical damage (double dice count)
+- Death saves
+- Dynamic pattern construction
+
+## 6a. Quick-Reference Equations
 
 **Baseline XP Budget**: Reference DMG p.165 budget table for party level and size (Easy/Medium/Hard/Deadly thresholds)
 
