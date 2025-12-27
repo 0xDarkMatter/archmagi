@@ -1,7 +1,7 @@
 # 📝 CAMPAIGN JOURNAL MANAGEMENT
 
 ## Overview
-The "09 Campaign Journal" maintains narrative continuity between sessions by logging key events in chronological order. This document provides guidelines for when and how to update it.
+The "Campaign Journal" maintains narrative continuity between sessions by logging key events in chronological order. This document provides guidelines for when and how to update it.
 
 ## Update Triggers
 Update the Campaign Journal at these key moments:
