@@ -6,6 +6,10 @@ An advanced AI-powered Dungeon Master for tabletop RPG campaigns, designed to de
 
 ArchMagi is a comprehensive prompt engineering framework that transforms Claude AI into a veteran D&D 5E game master. It combines encyclopedic Rules-As-Written knowledge with sophisticated narrative capabilities, offering customizable campaign experiences from streamlined encounters to literary-quality epic narratives.
 
+This repository includes two companion tools:
+- **ArchMagi** - The AI Game Master for running campaigns
+- **Hero Forge** - Pre-session character builder for creating D&D 5E characters
+
 ## ✨ Key Features
 
 ### 🎭 Adaptive Narrative Engine
@@ -112,18 +116,36 @@ If you want to enable audio narration for dramatic moments and NPC voices:
 
 ### Installation
 
-1. **Create a Claude Project**
+You'll create **two separate Claude Projects** - one for character creation (Hero Forge) and one for gameplay (ArchMagi).
+
+#### Project 1: Hero Forge (Character Builder)
+
+1. **Create Claude Project**
    - Go to [Claude.ai](https://claude.ai)
-   - Create a new Project
-   - Name it "ArchMagi" (or your preferred campaign name)
+   - Create a new Project named "Hero Forge"
 
 2. **Add System Instructions**
-   - In your Project settings, go to **"Custom instructions"**
-   - Upload `00-archmagi-command-prompt.md` to **Project Instructions**
-   - This file contains the core system prompt and orchestration logic
+   - Upload `hero-forge/heroforge-command-prompt.md` to **Project Instructions**
 
 3. **Upload Knowledge Base Files**
-   - Upload all remaining `.md` files to **Project Knowledge** (Files section):
+   - Upload from `hero-forge/` folder to **Project Knowledge**:
+     - `heroforge-character-template.md` (expanded sheet format)
+     - `character-sheet-template.md` (compact sheet format)
+
+4. **Create Characters**
+   - Start a conversation and Hero Forge guides you through 12-step character creation
+   - Export the final character sheet as Markdown
+
+#### Project 2: ArchMagi (Game Master)
+
+1. **Create Claude Project**
+   - Create a new Project named "ArchMagi" (or your campaign name)
+
+2. **Add System Instructions**
+   - Upload `00-archmagi-command-prompt.md` to **Project Instructions**
+
+3. **Upload Knowledge Base Files**
+   - Upload all root-level `.md` files to **Project Knowledge** (Files section):
      - Campaign configuration: `campaign-options.md`
      - Rules systems: `encounter-rules.md`, `nemesis-rules.md`, `entity-framework.md`, `journal-rules.md`, `statblocks-rules.md`
      - Narrative engine: `narrative-engine.md`
@@ -132,7 +154,11 @@ If you want to enable audio narration for dramatic moments and NPC voices:
      - Character template: `character-sheet-template.md`
      - Dice engine: `dice-engine.md`
 
-4. **Start Your Campaign**
+4. **Import Characters**
+   - Upload character sheets created with Hero Forge
+   - Or upload existing character sheets in Markdown format
+
+5. **Start Your Campaign**
    - Start a new conversation in your Project
    - ArchMagi will automatically initialize using the instructions
    - Follow the setup workflow to configure your campaign
@@ -234,6 +260,39 @@ Define your campaign's emotional landscape:
 ### 11. Session Toggles
 All settings can be adjusted mid-session with voice commands (e.g., `style verbose`, `tone gothic`, `combat epic`)
 
+## 🛠️ Hero Forge - Character Builder
+
+Hero Forge is a companion tool for pre-session character creation. It provides a guided 12-step wizard that walks players through building complete D&D 5E characters.
+
+### Features
+- **21 Campaign Settings** - Same settings as ArchMagi for consistency
+- **54 Official Races** - Complete list with sub-race support
+- **13 Classes** - All PHB classes with subclass selection
+- **4 Ability Score Methods** - Standard Array, Point Buy, 4d6-drop-lowest, 3d6-in-order
+- **Automatic Equipment** - Level-appropriate gear and magic items
+- **Spell Preparation** - Auto-generate or manually select spells
+- **Backstory Generation** - Optional AI-generated backgrounds with story hooks
+- **Two Output Formats** - Compact (quick reference) or Expanded (full detail)
+
+### Character Creation Steps
+1. Campaign Context (setting selection)
+2. Ancestry & Culture (race/sub-race)
+3. Class & Role
+4. Ability Scores
+5. Gender
+6. Name (with race-flavored suggestions)
+7. Alignment
+8. Age
+9. Height & Weight
+10. Background
+11. Personality Hooks (Ideal, Bond, Flaw, Trait)
+12. Leveling & Starting Options
+
+### Output
+Characters are exported as Markdown files compatible with ArchMagi's import system.
+
+---
+
 ## 📚 Core System Files
 
 ### System Instructions
@@ -273,6 +332,11 @@ Data structure definitions for all campaign tracking artifacts:
 #### Utilities
 - **`dice-engine.md`** - Inline Python patterns for all dice rolls via bash_tool. Provides accurate D&D 5E dice rolling with proper probability distribution.
 - **`character-sheet-template.md`** - Standardized character sheet format
+
+### Hero Forge Files (`hero-forge/`)
+- **`heroforge-command-prompt.md`** ← **Goes in Project Instructions**
+- **`heroforge-character-template.md`** - Expanded character sheet format
+- **`character-sheet-template.md`** - Compact character sheet format
 
 ## 🎮 In-Game Commands
 
