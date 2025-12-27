@@ -51,7 +51,7 @@ ArchMagi is a comprehensive prompt engineering framework that transforms Claude 
 
 **Required:**
 - Claude AI account with Projects access
-- **Claude Sonnet 4.5** (recommended model for optimal performance)
+- **Claude Opus 4.5** (best performance) or **Claude Sonnet 4.5** (cost-effective)
 
 **Optional (for Audio Narration):**
 - [ElevenLabs](https://elevenlabs.io) account (free tier available)
@@ -384,11 +384,11 @@ This is a personal project framework. Feel free to fork and customize for your o
 
 ## 🎭 Author
 
-Created by Mack Nevill
+Created by 0xDarkMatter
 
 ## 📄 License
 
-© 2024 Mack Nevill
+© 2024 0xDarkMatter
 
 ---
 
@@ -405,7 +405,7 @@ Created by Mack Nevill
 
 ## ⚠️ Important Notes
 
-- **Claude Sonnet 4.5 Recommended**: This system is optimized for Sonnet 4.5's capabilities
+- **Claude Opus 4.5 or Sonnet 4.5**: Opus 4.5 delivers best narrative quality; Sonnet 4.5 is cost-effective
 - **Project-Based**: Works best as a Claude Project, not in standard chat
 - **Correct File Placement**:
   - `00-archmagi-command-prompt.md` → **Project Instructions**
