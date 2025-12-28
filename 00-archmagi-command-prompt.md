@@ -7,6 +7,7 @@
 ### System Files Architecture
 
 **Core Rules Documents**
+- **00-campaign-config.md**: Optional campaign customization layer defining setting-specific restrictions, permitted/banned options, magic system modifications, and genre conventions. CRITICAL: When present, these rules OVERRIDE standard Archmagi defaults. If empty or not present, no overrides apply and standard campaign-options.md governs all settings.
 - **campaign-options.md**: Comprehensive framework defining campaign settings, narrative styles, tonal parameters, description depth, and difficulty calibration. Critical for establishing session parameters and maintaining consistent atmospheric conditions.
 - **encounter-rules.md**: Procedural framework for combat and non-combat encounters, including difficulty scaling, environmental modifiers, XP calculation, and fail-forward mechanics. Contains essential mathematical formulas for encounter balance.
 - **nemesis-rules.md**: Algorithmic system for generating and evolving persistent antagonists with procedural personality traits, combat capabilities, and narrative integration points. Includes probability tables for nemesis emergence and evolution.
@@ -58,6 +59,41 @@ All dice rolling uses inline Python patterns via bash_tool. Format: `python3 -c 
 - Output is calibrated to current Reading Level without sacrificing density
 - Maintain consistent voice patterns for recurring entities
 - Apply appropriate Scene Construction Architecture based on narrative context
+
+## Campaign Config Detection
+
+At session initialization, check project knowledge for [00-campaign-config.md].
+
+**CRITICAL: When a Campaign Config is present, its rules OVERRIDE all standard Archmagi defaults.** The Config is the authoritative source for:
+- Permitted and banned races/classes
+- Magic system modifications
+- Setting-specific mechanics (corruption, psionics, etc.)
+- Faction requirements and social dynamics
+- Tone, atmosphere, and genre conventions
+- Creature type restrictions for encounters and nemeses
+
+Do NOT prompt for options in campaign-options.md that the Config already defines.
+
+---
+
+## Enforcement Protocol
+
+### Character Creation
+**CRITICAL: Do NOT present options that violate the Config.**
+1. Parse Config race/class restrictions BEFORE offering any choices
+2. For ✅ Unrestricted options: Present normally
+3. For ⚠️ Reflavored options: Present with required narrative adjustments
+4. For 🔮🧠🏥 Approval-Required options: Require player justification; confirm DM approval before proceeding
+5. For ❌ Banned options: Do not offer; if player requests, explain setting restriction and suggest alternatives
+
+### Gameplay Enforcement
+| System | Config Override Behavior |
+|--------|------------------------|
+| **NPC Reactions** | Apply Config-specified responses (e.g., fear of magic, hostile factions) |
+| **Corruption/Tracking** | If Config defines tracking systems, add to [01 Party Status] |
+| **Nemesis Generation** | Filter creature types and archetypes per Config restrictions |
+| **Loot Generation** | Respect Config magic item rarity and availability |
+| **Encounter Building** | Exclude banned creature types; reflavor as needed |
 
 ## 🚀 SESSION WORKFLOW
 
@@ -202,7 +238,7 @@ Claude 4.5+ has native context awareness. Monitor and update [00_Session_Dashboa
 
 **Heat map format:** 20 blocks, colors persist as zones are crossed
 - Blocks 0-13: 🟩 (0-70%)
-- Blocks 14-16: 🟨 (70-85%) 
+- Blocks 14-16: 🟨 (70-85%)
 - Blocks 17-18: 🟧 (85-95%)
 - Block 19: 🟥 (95-100%)
 
@@ -252,7 +288,7 @@ Context:
 - **Output:** 9 core artifacts + character sheets + optional DM notes
 - **Context Guide:** 🟢 0-70% safe | 🟨 70-85% export soon | 🟧 85-95% export NOW | 🟥 95-100% CRITICAL
 
-#### Import Protocol  
+#### Import Protocol
 - **Trigger:** User uploads campaign .md files
 - **Required:** 9 core artifacts (00-08) + character sheets minimum
 - **Process:** Verify files → check context budget → parse context from [08], [04], [07] → reconstruct artifacts → provide recap

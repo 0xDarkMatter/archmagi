@@ -260,6 +260,53 @@ Define your campaign's emotional landscape:
 ### 11. Session Toggles
 All settings can be adjusted mid-session with voice commands (e.g., `style verbose`, `tone gothic`, `combat epic`)
 
+## 📜 Campaign Configs
+
+Campaign configs allow you to customize ArchMagi for specific settings with race/class restrictions, magic system modifications, and genre conventions.
+
+### How It Works
+
+1. Create a `00-campaign-config.md` file with your setting rules
+2. Upload it to your ArchMagi Claude Project's **Project Knowledge**
+3. ArchMagi automatically detects and enforces the config
+
+### Config Features
+
+- **Race/Class Restrictions** - Define allowed, reflavored, approval-required, and banned options
+- **Magic System Modifications** - Corruption tracking, spell consequences, NPC reactions
+- **Faction Integration** - Guild memberships, faction relationships, social dynamics
+- **Nemesis Filters** - Restrict creature types and archetypes for the setting
+- **Tone Guidance** - Adventure types, villain archetypes, narrative conventions
+
+### Included Configs
+
+| Setting | File | Description |
+|---------|------|-------------|
+| **Lankhmar** | `campaigns/lankhmar/00-campaign-config.md` | Fritz Leiber's sword & sorcery - low magic, noir tone, human-centric with corruption mechanics |
+
+### Creating Custom Configs
+
+Use the Lankhmar config as a template. Key sections:
+
+```markdown
+## RACE OPTIONS
+(Define allowed races with reflavoring notes)
+
+## CLASS OPTIONS
+(Categorize as ✅ Unrestricted, ⚠️ Reflavored, 🔮 DM Approval, ❌ Banned)
+
+## MAGIC SYSTEM
+(Corruption rules, NPC reactions, item rarity)
+
+## FACTIONS & ORGANIZATIONS
+(Setting-specific groups and relationships)
+
+## NEMESIS SYSTEM MODIFICATIONS
+(Allowed/forbidden creature types, archetypes)
+```
+
+---
+
 ## 🛠️ Hero Forge - Character Builder
 
 Hero Forge is a companion tool for pre-session character creation. It provides a guided 12-step wizard that walks players through building complete D&D 5E characters.
